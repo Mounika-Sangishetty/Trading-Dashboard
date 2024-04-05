@@ -54,17 +54,13 @@ export default function MainContent() {
         </div>
       </div>
       <Grid container spacing={2}>
-        {/* Line Graph Section */}
         <Grid item xs={12} md={12} lg={7} sx={{ pt: 2, pb: 2 }}>
           <LineGraph />
         </Grid>
-
-        {/* Pie Chart Section */}
         <Grid item xs={12} md={12} lg={5} sx={{ pt: 2, pb: 2 }}>
           <PieChart />
         </Grid>
       </Grid>
-
       <Cards />
     </Box>
   );

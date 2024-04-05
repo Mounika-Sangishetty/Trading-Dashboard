@@ -68,9 +68,9 @@ export default function Sidenav() {
 
   useEffect(() => {
     if (isSmallerScreen) {
-      setOpen(false); // Close drawer for smaller screens
+      setOpen(false); 
     } else if (isLargerScreen) {
-      setOpen(true); // Open drawer for larger screens
+      setOpen(true); 
     }
   }, [isSmallerScreen, isLargerScreen]);
 

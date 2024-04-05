@@ -87,7 +87,7 @@ function PieChart() {
           {pieData ? (
             <Doughnut options={options} data={pieData} />
           ) : (
-            <p>Loading...</p> // Show loading text while the data is being fetched
+            <p>Loading...</p> 
           )}
         </div>
       </CardContent>

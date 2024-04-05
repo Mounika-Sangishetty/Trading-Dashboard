@@ -1,12 +1,10 @@
 import { React } from "react";
 import { useState } from "react";
-
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import List from "@mui/material/List";
 import ListItemIcon from "@mui/material/ListItemIcon";
-
 import HomeIcon from "@mui/icons-material/Home";
 import CorporateFareIcon from "@mui/icons-material/CorporateFare";
 import LanguageIcon from "@mui/icons-material/Language";
@@ -37,7 +35,6 @@ export default function MenuList({open}){
         <List>
         {menuList.map((item, index) => (
           item.spacer ? (
-            // Render a spacer if the item is marked as a spacer
             <div key={index} style={{ height: 100, }} /> 
           ) : (
           <ListItem

@@ -9,7 +9,7 @@ const DarkModeProvider = ({ children }) => {
     return savedMode !== null ? savedMode === 'true' : true;
   });
 
-  // Function to toggle dark mode
+
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
     localStorage.setItem('darkMode', (!darkMode).toString());
