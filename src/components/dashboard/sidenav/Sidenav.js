@@ -2,22 +2,17 @@ import React from "react";
 import { useState } from "react";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-
 import MuiDrawer from "@mui/material/Drawer";
-
-
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import MenuIcon from '@mui/icons-material/Menu';
 import WaterDropTwoToneIcon from '@mui/icons-material/WaterDropTwoTone';
-
-
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import Avatar from "@mui/material/Avatar";
 import MenuList from "./MenuList";
+import SearchMenu from "./SearchMenu";
 
 
 const drawerWidth = 240;
@@ -65,6 +60,7 @@ const Drawer = styled(MuiDrawer, {
     ...closedMixin(theme),
     "& .MuiDrawer-paper": closedMixin(theme),
   }),
+  
 }));
 
 export default function Sidenav() {
@@ -79,23 +75,18 @@ export default function Sidenav() {
     <Drawer variant="permanent" open={open}>
 
       <DrawerHeader>
-        <IconButton onClick={handleDrawerState} sx={{ marginRight: 'auto' }}> {/* This pushes everything else to the right */}
+        <IconButton onClick={handleDrawerState}> {/* This pushes everything else to the right */}
           <MenuIcon />
         </IconButton>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', marginRight: '1.5rem' }}>
           <WaterDropTwoToneIcon sx={{ color: '#add24d', fontSize: '3rem' }} />
-          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1' }}>
-            <Typography variant="h6" sx={{ color: '#add24d', marginBottom: '-0.35em' }} noWrap>Carbon</Typography>
-            <Typography variant="h6" sx={{ color: '#add24d' }} noWrap>Cell</Typography>
-          </div>
+          <Typography variant="h6" sx={{ color: '#add24d', marginBottom: '-0.35em' }} noWrap>CarbonCell</Typography>
         </div>
       </DrawerHeader>
-
       <Divider/>
-
+      <SearchMenu />
       <MenuList open={open} />
-      
-      <Card sx={{ maxWidth: 395, }} className="navBottomCard">
+      <Card sx={{ maxWidth: 395 }} className="navBottomCard">
         <CardHeader
           avatar={
             <Avatar

@@ -123,7 +123,7 @@ function LineGraph() {
   return (
     <Card>
       <CardContent>
-      <div style={{ width: "700px" }}>
+      <div style={{ width: "590px", height: "300px" }}>
         {lineData && <Line options={options} data={lineData} />}
       </div>
       </CardContent>

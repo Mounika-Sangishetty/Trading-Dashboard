@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import { Typography, Avatar } from "@mui/material";
-import Divider from "@mui/material/Divider";
-
+import { Card, CardContent, Typography, Avatar, Grid, Divider } from "@mui/material";
 
 const FetchCard = () => {
   const [data, setData] = useState(null);
@@ -31,10 +27,10 @@ const FetchCard = () => {
 
     fetchData();
   }, []);
-  console.log(data, "p");
+
   return (
     <Card>
-      <CardContent style={{ display: "flex", gap: "20px" }}>
+      <CardContent>
         {isLoading ? (
           <Typography variant="body1">Loading...</Typography>
         ) : error ? (
@@ -42,56 +38,31 @@ const FetchCard = () => {
             {error}
           </Typography>
         ) : (
-          <>
+          <Grid container spacing={2}>
             {Object.keys(data?.bpi).map((item, index) => (
-              <Card
-                key={index}
-                variant="outlined"
-                style={{
-                  borderRadius: "10px",
-                  // height: "150px",
-                  minWidth: "300px",
-                }}
-              >
-                <CardContent>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      marginBottom: "5px",
-                      columnGap: "10px",
-                    }}
-                  >
-                    <Avatar sx={{ bgcolor: '#fec900' }}>
-                      <Typography variant="h5">
-                        <span
-                          dangerouslySetInnerHTML={{
-                            __html: data?.bpi[item]?.symbol,
-                          }}
-                        />
-                      </Typography>
-                    </Avatar>
-                    {data?.bpi[item]?.code}
-                  </div>
-                  <Typography variant="body2">
-                    {data?.bpi[item]?.description}
-                  </Typography>
-                  <Divider />
-                  <Typography variant="body2" style={{ marginTop: "10px" }}>
-                    Rate
-                  </Typography>
-                  <Typography variant="h5" style={{ fontWeight: "bold" }}>
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: data?.bpi[item]?.symbol,
-                      }}
-                    />
-                    {data?.bpi[item]?.rate}
-                  </Typography>
-                </CardContent>
-              </Card>
+              <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+                <Card variant="outlined" sx={{ borderRadius: 2 }}>
+                  <CardContent>
+                    <div style={{ display: "flex", alignItems: "center", marginBottom: "5px", columnGap: "10px" }}>
+                      <Avatar sx={{ bgcolor: '#fec900' }}>
+                        <Typography variant="h5">
+                          <span dangerouslySetInnerHTML={{ __html: data?.bpi[item]?.symbol }} />
+                        </Typography>
+                      </Avatar>
+                      {data?.bpi[item]?.code}
+                    </div>
+                    <Typography variant="body2">{data?.bpi[item]?.description}</Typography>
+                    <Divider />
+                    <Typography variant="body2" style={{ marginTop: "10px" }}>Rate</Typography>
+                    <Typography variant="h5" style={{ fontWeight: "bold" }}>
+                      <span dangerouslySetInnerHTML={{ __html: data?.bpi[item]?.symbol }} />
+                      {data?.bpi[item]?.rate}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
             ))}
-          </>
+          </Grid>
         )}
       </CardContent>
     </Card>

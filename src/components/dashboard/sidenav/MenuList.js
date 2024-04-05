@@ -32,7 +32,7 @@ export default function MenuList({open}){
         { icon: <ImportExportIcon />, name: "Trade" },
         { icon: <HourglassEmptyIcon />, name: "History" },
         { icon: <WalletIcon />, name: "Wallet" },
-        { spacer: true },
+
         { icon: <NotificationsNoneIcon />, name: "Notifications" },
         { icon: <ContactSupportIcon />, name: "Support" },
         { icon: <SettingsIcon />, name: "Settings" },
