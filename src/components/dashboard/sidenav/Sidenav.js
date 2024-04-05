@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { styled, useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
 import Divider from "@mui/material/Divider";
@@ -68,7 +68,7 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function Sidenav() {
-  const theme = useTheme();
+  
   const [open, setOpen] = useState(true);
 
   const handleDrawerState = () => {
