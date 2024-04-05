@@ -47,11 +47,11 @@ const Search = styled("div")(({ theme }) => ({
 
 export default function SearchMenu() {
     return(
-        <Search>
+        <Search style={{marginLeft: '0px'}}>
             <SearchIconWrapper>
                 <SearchIcon />
             </SearchIconWrapper>
-            <StyledInputBase
+            <StyledInputBase style={{paddingLeft: '1rem'}}
             placeholder="Search"
             inputProps={{ "aria-label": "search" }}
             />

@@ -8,7 +8,7 @@ const DarkModeToggle = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <IconButton onClick={toggleDarkMode}>
+    <IconButton onClick={toggleDarkMode}  sx={{marginRight:'10px'}}>
       {darkMode ? <DarkModeIcon /> : <LightModeIcon />}
     </IconButton>
   );

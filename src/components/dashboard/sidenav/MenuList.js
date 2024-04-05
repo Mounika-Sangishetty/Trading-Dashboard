@@ -11,8 +11,6 @@ import HomeIcon from "@mui/icons-material/Home";
 import CorporateFareIcon from "@mui/icons-material/CorporateFare";
 import LanguageIcon from "@mui/icons-material/Language";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
-import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
-import WalletIcon from "@mui/icons-material/Wallet";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -30,9 +28,6 @@ export default function MenuList({open}){
         { icon: <CorporateFareIcon />, name: "Organisation" },
         { icon: <LanguageIcon />, name: "Assets" },
         { icon: <ImportExportIcon />, name: "Trade" },
-        { icon: <HourglassEmptyIcon />, name: "History" },
-        { icon: <WalletIcon />, name: "Wallet" },
-
         { icon: <NotificationsNoneIcon />, name: "Notifications" },
         { icon: <ContactSupportIcon />, name: "Support" },
         { icon: <SettingsIcon />, name: "Settings" },
@@ -51,7 +46,7 @@ export default function MenuList({open}){
             sx={{
               display: "block",
               color:
-                activeItem === item.name ? "green" : "transperent",
+                activeItem === item.name ? '#ab47bc' : "transperent",
             }}
             onClick={() => handleItemClick(item.name)}
           >
@@ -68,7 +63,7 @@ export default function MenuList({open}){
                   mr: open ? 3 : "auto",
                   justifyContent: "center",
                   color:
-                   activeItem === item.name ? "green" : "transperent",
+                   activeItem === item.name ? '#ab47bc' : "transperent",
                 }}
               >
                 {item.icon}

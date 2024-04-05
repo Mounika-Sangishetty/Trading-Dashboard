@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Card, CardContent, Typography, Avatar, Grid, Divider } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  Typography,
+  Avatar,
+  Grid,
+  Divider,
+} from "@mui/material";
 
 const FetchCard = () => {
   const [data, setData] = useState(null);
@@ -16,7 +23,6 @@ const FetchCard = () => {
           throw new Error("Failed to fetch data");
         }
         const postData = await response.json();
-        console.log(postData, "h");
         setData(postData);
         setIsLoading(false);
       } catch (error) {
@@ -43,19 +49,41 @@ const FetchCard = () => {
               <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                 <Card variant="outlined" sx={{ borderRadius: 2 }}>
                   <CardContent>
-                    <div style={{ display: "flex", alignItems: "center", marginBottom: "5px", columnGap: "10px" }}>
-                      <Avatar sx={{ bgcolor: '#fec900' }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        marginBottom: "15px",
+                        columnGap: "10px",
+                      }}
+                    >
+                      <Avatar sx={{ bgcolor: "#ba68c8" }}>
                         <Typography variant="h5">
-                          <span dangerouslySetInnerHTML={{ __html: data?.bpi[item]?.symbol }} />
+                          <span
+                            dangerouslySetInnerHTML={{
+                              __html: data?.bpi[item]?.symbol,
+                            }}
+                          />
                         </Typography>
                       </Avatar>
                       {data?.bpi[item]?.code}
                     </div>
-                    <Typography variant="body2">{data?.bpi[item]?.description}</Typography>
+                    <Typography
+                      variant="body2"
+                      style={{ margin: "10px", marginLeft: "0px" }}
+                    >
+                      {data?.bpi[item]?.description}
+                    </Typography>
                     <Divider />
-                    <Typography variant="body2" style={{ marginTop: "10px" }}>Rate</Typography>
+                    <Typography variant="body2" style={{ marginTop: "10px" }}>
+                      Rate
+                    </Typography>
                     <Typography variant="h5" style={{ fontWeight: "bold" }}>
-                      <span dangerouslySetInnerHTML={{ __html: data?.bpi[item]?.symbol }} />
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: data?.bpi[item]?.symbol,
+                        }}
+                      />
                       {data?.bpi[item]?.rate}
                     </Typography>
                   </CardContent>

@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
@@ -13,7 +12,7 @@ import CardHeader from "@mui/material/CardHeader";
 import Avatar from "@mui/material/Avatar";
 import MenuList from "./MenuList";
 import SearchMenu from "./SearchMenu";
-
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const drawerWidth = 240;
 
@@ -60,12 +59,20 @@ const Drawer = styled(MuiDrawer, {
     ...closedMixin(theme),
     "& .MuiDrawer-paper": closedMixin(theme),
   }),
-  
 }));
 
 export default function Sidenav() {
-  
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+  const isSmallerScreen = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+  const isLargerScreen = useMediaQuery((theme) => theme.breakpoints.up('md'));
+
+  useEffect(() => {
+    if (isSmallerScreen) {
+      setOpen(false); // Close drawer for smaller screens
+    } else if (isLargerScreen) {
+      setOpen(true); // Open drawer for larger screens
+    }
+  }, [isSmallerScreen, isLargerScreen]);
 
   const handleDrawerState = () => {
     setOpen(!open);
@@ -73,20 +80,19 @@ export default function Sidenav() {
 
   return (
     <Drawer variant="permanent" open={open}>
-
       <DrawerHeader>
-        <IconButton onClick={handleDrawerState}> {/* This pushes everything else to the right */}
+        <IconButton onClick={handleDrawerState} style={{ margin: '0px 10px' }}> 
           <MenuIcon />
         </IconButton>
         <div style={{ display: 'flex', alignItems: 'center', marginRight: '1.5rem' }}>
-          <WaterDropTwoToneIcon sx={{ color: '#add24d', fontSize: '3rem' }} />
-          <Typography variant="h6" sx={{ color: '#add24d', marginBottom: '-0.35em' }} noWrap>CarbonCell</Typography>
+          <WaterDropTwoToneIcon sx={{ color: '#ab47bc', fontSize: '3rem' }} />
+          <Typography variant="h6" sx={{ color: '#ab47bc', marginBottom: '-0.35em' }} noWrap>CarbonCell</Typography>
         </div>
       </DrawerHeader>
       <Divider/>
-      <SearchMenu />
+      <SearchMenu/>
       <MenuList open={open} />
-      <Card sx={{ maxWidth: 395 }} className="navBottomCard">
+      <Card sx={{ maxWidth: 395 }} style={{marginTop: '1rem'}}>
         <CardHeader
           avatar={
             <Avatar

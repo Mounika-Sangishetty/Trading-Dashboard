@@ -10,7 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { Card, CardContent } from "@mui/material";
+import { Card, CardContent, Typography, Divider } from "@mui/material";
 
 ChartJS.register(
   CategoryScale,
@@ -26,10 +26,10 @@ export const options = {
   responsive: true,
   plugins: {
     legend: {
-      position: "top",
+      position: "bottom",
     },
     title: {
-      display: true,
+      display: false,
       text: "US Population Over Time",
       font: {
         size: 18,
@@ -68,13 +68,11 @@ export const options = {
   elements: {
     point: {
       radius: 3,
-      backgroundColor: "rgb(0, 255, 0)",
-      borderWidth: 1,
-      borderColor: "rgb(0, 255, 0)",
+      backgroundColor: "#ab47bc",     
     },
     line: {
       borderWidth: 2,
-      borderColor: "rgb(0, 255, 0)",
+      borderColor: "#ab47bc",
       tension: 0.3,
       fill: false,
     },
@@ -118,16 +116,21 @@ function LineGraph() {
     fetchData();
   }, []);
 
- 
-  
   return (
     <Card>
       <CardContent>
-      <div style={{ width: "590px", height: "300px" }}>
-        {lineData && <Line options={options} data={lineData} />}
-      </div>
+        <Typography
+          variant="h6"
+          sx={{ margin: "10px", marginTop: "0px" }}
+        >
+          Line Graph of US Population over time
+        </Typography>
+        <Divider sx={{ margin: "10px" }}></Divider>
+        <div style={{ width: "100%", height: "19rem" }}>
+          {lineData && <Line options={options} data={lineData} />}
+        </div>
       </CardContent>
-    </Card>  
+    </Card>
   );
 }
 

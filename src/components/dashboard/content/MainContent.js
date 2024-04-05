@@ -5,7 +5,7 @@ import Cards from "./Cards";
 import WavingHandIcon from "@mui/icons-material/WavingHand";
 import { Box, Typography, Grid } from "@mui/material";
 import { DarkModeToggle } from "../../buttons/DarkModeToggle";
-import WalletConnectComponent from '../../buttons/WalletConnectComponent';
+import WalletConnectComponent from "../../buttons/WalletConnectComponent";
 
 export default function MainContent() {
   return (
@@ -15,17 +15,32 @@ export default function MainContent() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-         
         }}
       >
         <div style={{ display: "flex", flexDirection: "column" }}>
-
           <Typography variant="h6">
-            Hello, <Box component="span" sx={{ color: '#00FF00' }}>Brooklyn Simmons</Box>
-            <WavingHandIcon sx={{ color: '#FFFF00' , fontSize: '2.3rem', pt: 1.7, pr: 0.5, pl: 0.5 }} />
+            Hello,{" "}
+            <Box component="span" sx={{ color: "#ab47bc" }}>
+              Brooklyn Simmons
+            </Box>
+            <WavingHandIcon
+              sx={{
+                color: "#FFFF00",
+                fontSize: "2rem",
+                pt: 1.7,
+                pr: 0.5,
+                pl: 0.5,
+              }}
+            />
           </Typography>
 
-          <Typography variant="p">Welcome to<Box component="span" sx={{ color: '#00FF00' }}> spot trading!</Box> </Typography>
+          <Typography variant="p" sx={{ marginBottom: "20px" }}>
+            Welcome to
+            <Box component="span" sx={{ color: "#ab47bc" }}>
+              {" "}
+              spot trading!
+            </Box>
+          </Typography>
         </div>
         <div
           style={{
@@ -35,22 +50,21 @@ export default function MainContent() {
           }}
         >
           <DarkModeToggle />
-          <WalletConnectComponent  />
- 
+          <WalletConnectComponent />
         </div>
       </div>
-      <Grid container spacing={3}>
+      <Grid container spacing={2}>
         {/* Line Graph Section */}
-        <Grid item xs={12} md={8} lg={7} sx={{ pt: 2, pb: 2 }}>
+        <Grid item xs={12} md={12} lg={7} sx={{ pt: 2, pb: 2 }}>
           <LineGraph />
         </Grid>
-         {/* Pie Chart Section */}
-        <Grid item xs={12} md={4} lg={5} sx={{ pt: 2, pb: 2 }}>
+
+        {/* Pie Chart Section */}
+        <Grid item xs={12} md={12} lg={5} sx={{ pt: 2, pb: 2 }}>
           <PieChart />
         </Grid>
       </Grid>
-   
-      
+
       <Cards />
     </Box>
   );
