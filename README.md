@@ -2,6 +2,13 @@
 
 ## [Live](https://mounika-trading-dashboard.netlify.app/)
 
+# What it includes
+- Created a responsive side navigation bar.
+- Created a Line Graph and Bar Graph of US Population over different years by fetching API.
+- Created cards that display Cryptocurrency Prices  by fetching API.
+- Implement a feature to connect the MetaMask wallet using Web3 JS when the "Connect Wallet" button is clicked.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
