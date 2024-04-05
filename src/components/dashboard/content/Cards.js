@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { Typography, Avatar } from "@mui/material";
 import Divider from "@mui/material/Divider";
-import { pink } from "@mui/material/colors";
+
 
 const FetchCard = () => {
   const [data, setData] = useState(null);
