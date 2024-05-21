@@ -1,6 +1,6 @@
 # A Dashboard using ReactJs and Material UI
 
-## [Live](https://mounika-trading-dashboard.netlify.app/)
+## [Live](https://react-trading-dashboard.netlify.app/)
 
 # What it includes
 - Created a responsive side navigation bar.
